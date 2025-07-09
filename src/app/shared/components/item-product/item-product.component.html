@@ -1,0 +1,26 @@
+<div
+  class="card-product rounded-[20px] transition-all hover:shadow-lg group cursor-pointer bg-white dark:bg-darkMode p-2">
+  
+  <!-- Image Section -->
+  <div class="relative rounded-[20px] overflow-hidden">
+    <img
+      [src]="popularItem.image || 'https://via.placeholder.com/400x270?text=No+Image'"
+      [alt]="popularItem.title"
+      class="h-[270px] w-full object-cover transition-transform duration-300 group-hover:scale-105" />
+    
+  <!-- Content Section -->
+  <div class="card-product-body p-4">
+    <h5 class="text-primary text-[17px] font-semibold mb-2 truncate dark:text-darkMode-secondary">
+      {{ popularItem.title || 'Product Title' }}
+    </h5>
+    <div class="flex justify-between items-center">
+      <!-- Add to Cart Button -->
+      <button
+        type="button"
+        aria-label="Add to Cart"
+        class="bg-primary text-white rounded-full w-[42px] h-[42px] grid place-items-center dark:bg-dark-shopping hover:bg-primary-dark hover:shadow-lg transition">
+        <i class="fa-solid fa-bag-shopping fa-fw"></i>
+      </button>
+    </div>
+  </div>
+</div>
