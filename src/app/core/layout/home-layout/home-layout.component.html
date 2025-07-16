@@ -1,4 +1,6 @@
-<app-header></app-header>
+<app-header (cartClick)="openSidebar()"></app-header>
+
+<app-orders-sidebar [(sidebarVisible)]="sidebarVisible"></app-orders-sidebar>
 
 <router-outlet></router-outlet>
 
