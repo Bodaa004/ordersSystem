@@ -5,20 +5,23 @@
         <img
           src="/assets/images/logo.png"
           alt=""
-          class="w-auto h-[86px]"
+          class="w-auto h-[64px] md:h-[86px]"
         />
       </a>
-      <div class="search grow relative mx-4">
+      <div class="search grow relative mx-4 hidden sm:block">
         <input
           type="search"
-          name=""
-          id=""
           class="border border-slate-300 bg-white rounded-xl py-3.5 w-full ps-[42px] pe-4 focus:outline-none"
         />
         <i
           class="fa-solid fa-magnifying-glass absolute top-2/4 -translate-y-2/4 text-gray-400 start-4"
         ></i>
       </div>
+      <!-- Hamburger menu for mobile -->
+      <button class="md:hidden p-2 text-white focus:outline-none" (click)="showMobileMenu = !showMobileMenu">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+      <!-- Desktop Nav -->
       <div class="hidden md:block">
         <ul class="flex items-center">
           <li>
@@ -52,12 +55,12 @@
               >
                 <div class="py-1">
                   <a
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                    class="block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
                     (click)="changeLanguage('English')"
                     >English</a
                   >
                   <a
-                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+                    class="block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
                     (click)="changeLanguage('العربية')"
                     >العربية</a
                   >
@@ -65,17 +68,70 @@
               </div>
             }
             </div>
-            <!--
-                  <li>
-                    <button class="py-2 px-4  text-slate-700 dark:text-white text-base border-s dark:border-zinc-600 py-3.5 ms-2.5 font-fontAr"
-                            (click)="changeLang(currentLang === 'en' ? 'ar' : 'en')">
-                      {{ currentLang === 'en' ? 'العربية' : 'English' }}
-                    </button>
-                  </li>
-                -->
           </li>
         </ul>
       </div>
     </div>
+    <!-- Mobile Menu -->
+    @if (showMobileMenu) {
+      <div class="block md:hidden bg-white shadow-lg rounded-b-xl px-4 py-4">
+        <ul class="flex flex-col gap-4">
+          <li>
+            <a class="text-base text-slate-700 flex items-center gap-2"
+              ><i class="fa-regular fa-user fa-fw"></i> User </a
+            >
+          </li>
+          <li>
+            <button class="relative text-slate-700 flex items-center gap-2">
+              <i class="fa-solid fa-bag-shopping text-xl fa-fw"></i>
+              <span
+                class="absolute top-0 right-0 bg-red-500 text-white rounded-full text-xs w-[18px] h-[18px] grid place-items-center"
+                >5</span
+              >
+            </button>
+          </li>
+          <li>
+            <div class="relative inline-block text-left">
+              <button
+                type="button"
+                class="py-2 px-4 text-slate-700 text-base font-fontAr border rounded"
+                (click)="toggleLangDropdown()"
+                >
+                {{ currentLang }}
+                <i class="fa-solid fa-angle-down"></i>
+              </button>
+              @if (showLangDropdown) {
+                <div
+                  class="origin-top-right absolute right-0 mt-2 w-36 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10"
+                >
+                  <div class="py-1">
+                    <a
+                      class="block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
+                      (click)="changeLanguage('English')"
+                      >English</a
+                    >
+                    <a
+                      class="block px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer"
+                      (click)="changeLanguage('العربية')"
+                      >العربية</a
+                    >
+                  </div>
+                </div>
+              }
+            </div>
+          </li>
+        </ul>
+        <div class="search mt-4 block sm:hidden">
+          <input
+            type="search"
+            class="border border-slate-300 bg-white rounded-xl py-3.5 w-full ps-[42px] pe-4 focus:outline-none"
+            placeholder="Search..."
+          />
+          <i
+            class="fa-solid fa-magnifying-glass absolute top-2/4 -translate-y-2/4 text-gray-400 start-4 left-4"
+          ></i>
+        </div>
+      </div>
+    }
   </div>
 </header>
