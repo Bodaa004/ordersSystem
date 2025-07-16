@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { IProduct } from '../../../features/interfaces/iproduct';
 
 @Component({
   selector: 'app-item-product',
@@ -7,13 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './item-product.component.scss',
 })
 export class ItemProductComponent {
-  @Input() popularItem: {
-    id: number;
-    title: string;
-    image: string;
-  } = {
-    id: 0,
-    title: 'Title of the Product',
-    image: 'https://images.unsplash.com/photo-1606787360230-2f',
-  };
+  @Input() popularItem: IProduct = {} as IProduct
+
 }
