@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -10,6 +10,7 @@ export class HeaderComponent {
   showLangDropdown: boolean = false;
   currentLang: string = 'English';
   showMobileMenu: boolean = false;
+  @Output() cartClick = new EventEmitter<void>();
 
   toggleLangDropdown(): void {
     this.showLangDropdown = !this.showLangDropdown;
@@ -20,4 +21,10 @@ export class HeaderComponent {
     this.showLangDropdown = false;
     console.log(`Language changed to: ${lang}`);
   }
+
+  onCartClick() {
+    console.log('Cart clicked!');
+    this.cartClick.emit();
+  }
 }
+
