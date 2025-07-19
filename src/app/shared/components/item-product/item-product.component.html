@@ -4,15 +4,16 @@
   <!-- Image Section -->
   <div class="relative rounded-[20px] overflow-hidden">
     <img
-      [src]="popularItem.imgCover || 'https://via.placeholder.com/400x270?text=No+Image'"
-      [alt]="popularItem.title"
+      [src]="popularItem.img"
+      [alt]="popularItem.name"
       class="h-[270px] w-full object-cover transition-transform duration-300 group-hover:scale-105" />
     
   <!-- Content Section -->
   <div class="card-product-body p-4">
     <h5 class="text-primary text-[17px] font-semibold mb-2 truncate dark:text-darkMode-secondary">
-      {{ popularItem.title || 'Product Title' }}
+      {{ popularItem.name || 'Product Title' }}
     </h5>
+    <p class="text-gray-500 mb-2">{{ popularItem.category }}</p>
     <div class="flex justify-between items-center">
       <!-- Add to Cart Button -->
       <button

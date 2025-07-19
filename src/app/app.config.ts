@@ -34,6 +34,5 @@ export const appConfig: ApplicationConfig = {
         preset: Aura
       }
     }),
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
 };

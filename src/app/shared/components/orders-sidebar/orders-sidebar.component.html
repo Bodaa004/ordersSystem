@@ -10,11 +10,11 @@
   </ng-template>
   @if (cartItems.length) {
     <ul>
-      @for (item of cartItems; track item._id) {
+      @for (item of cartItems; track item.id) {
         <li class="flex justify-between items-center py-2 border-b">
-          <span>{{ item.title }} - {{ 'Price' | arabicTranslate }}: {{ item.price | currency }}</span>
+          <span>{{ item.name }}</span>
           <button class="ml-2 px-2 py-1 bg-red-500 text-white rounded"
-                  (click)="removeItem(item._id)">
+                  (click)="removeItem(item.id)">
             {{ 'Remove' | arabicTranslate }}
           </button>
         </li>

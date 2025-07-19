@@ -1,4 +1,4 @@
 export enum Api_End_Point {
-  PRODUCTS = 'products',
+  PRODUCTS = 'ProductItems',
   CART = 'cart'
 }
