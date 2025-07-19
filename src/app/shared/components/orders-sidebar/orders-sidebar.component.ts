@@ -51,10 +51,10 @@ export class OrdersSidebarComponent implements OnInit {
 
 
   get total(): number {
-    return this.cartItems.reduce((sum, item) => sum + item.price, 0);
+    return this.cartItems.reduce((sum, item) => sum + 500, 0);
   }
 
-  removeItem(productId: string) {
-    this.cartItems = this.cartItems.filter(item => item._id !== productId);
+  removeItem(productId: number) {
+    this.cartItems = this.cartItems.filter(item => item.id !== productId);
   }
 }

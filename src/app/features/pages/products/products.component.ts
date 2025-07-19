@@ -25,8 +25,10 @@ export class ProductsComponent implements OnInit {
     this.loading = true;
     this.productsService.getAllProducts().subscribe({
       next: (data) => {
-        console.log('API response:', data);
-        this.products = data.products
+        this.products = data.map(product => ({
+          ...product,
+          img: this.getImageForProduct(product)
+        }));
         this.loading = false;
       },
       error: (err) => {
@@ -35,5 +37,31 @@ export class ProductsComponent implements OnInit {
         this.loading = false;
       }
     });
+  }
+
+  getImageForProduct(product: IProduct): string {
+    const imageMap: { [key: string]: string } = {
+      'Tea': 'tea.jpg',
+      'Milk': 'milk.jpg',
+      'Coffee': 'coffee.jpg',
+      'Peppermint': 'peppermint.jpg',
+      'Hisbiscus': 'hisbiscus.jpg',
+      'Nescafe': 'nescafe.jpg',
+      'Cinnamon': 'cinnamon.webp',
+      'Cardamom': 'cardamom.webp',
+      'Anise': 'anise.webp',
+      'Ginger': 'ginger.jpg',
+      'Sahlab': 'sahlab.avif',
+      'Sobia': 'sobia.jpeg',
+      'Kharob': 'kharob.webp',
+      'Amar El-dien': 'amar-el-dien.jpeg',
+      'Lemon': 'lemon.jpg',
+      'Lemonade': 'lemonade.jpg',
+      'Water': 'water.jpg',
+      'Magic Juice': 'magic-juice.jpg',
+      'Magic Juice V2': 'magic-juice-v2.jpg'
+      // Add more mappings as needed
+    };
+    return `assets/images/${imageMap[product.name] || 'placeholder.jpg'}`;
   }
 }
