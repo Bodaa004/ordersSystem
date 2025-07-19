@@ -2,10 +2,11 @@ import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { ItemProductComponent } from '../../../shared/components/item-product/item-product.component';
 import { IProduct } from '../../interfaces/iproduct';
 import { ProductsService } from '../../../shared/services/products.service';
+import { ArabicTranslatePipe } from '../../../shared/pipes/arabic-translate.pipe';
 
 @Component({
   selector: 'app-products',
-  imports: [ItemProductComponent],
+  imports: [ItemProductComponent,ArabicTranslatePipe],
   templateUrl: './products.component.html',
   styleUrl: './products.component.scss',
 })

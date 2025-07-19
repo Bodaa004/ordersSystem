@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { SidebarModule } from 'primeng/sidebar';
 import { CurrencyPipe } from '@angular/common';
+import { ArabicTranslatePipe } from '../../pipes/arabic-translate.pipe';
 import { CartService } from '../../services/cart.service';
 import { IProduct } from '../../../features/interfaces/iproduct';
 import { IResponseCart } from '../../../features/interfaces/iResponseCart';
@@ -8,7 +9,7 @@ import { IResponseCart } from '../../../features/interfaces/iResponseCart';
 @Component({
   selector: 'app-orders-sidebar',
   standalone: true,
-  imports: [SidebarModule, CurrencyPipe],
+  imports: [SidebarModule, CurrencyPipe, ArabicTranslatePipe],
   templateUrl: './orders-sidebar.component.html',
   styleUrl: './orders-sidebar.component.scss'
 })

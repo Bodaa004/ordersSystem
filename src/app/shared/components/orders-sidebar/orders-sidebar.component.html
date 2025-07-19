@@ -6,25 +6,25 @@
   styleClass="w-30rem"
 >
   <ng-template pTemplate="header">
-    <span class="font-semibold text-xl">Cart</span>
+    <span class="font-semibold text-xl">{{ 'Cart' | arabicTranslate }}</span>
   </ng-template>
   @if (cartItems.length) {
     <ul>
       @for (item of cartItems; track item._id) {
         <li class="flex justify-between items-center py-2 border-b">
-          <span>{{ item.title }} - {{ item.price | currency }}</span>
+          <span>{{ item.title }} - {{ 'Price' | arabicTranslate }}: {{ item.price | currency }}</span>
           <button class="ml-2 px-2 py-1 bg-red-500 text-white rounded"
                   (click)="removeItem(item._id)">
-            Remove
+            {{ 'Remove' | arabicTranslate }}
           </button>
         </li>
       }
     </ul>
     <div class="mt-4 font-bold text-right">
-      Total: {{ total | currency }}
+      {{ 'Total' | arabicTranslate }}: {{ total | currency }}
     </div>
-    <button class="mt-4 w-full bg-green-600 text-white py-2 rounded">Checkout</button>
+    <button class="mt-4 w-full bg-green-600 text-white py-2 rounded">{{ 'Checkout' | arabicTranslate }}</button>
   } @else {
-    <p class="text-center text-gray-500">Your cart is empty.</p>
+    <p class="text-center text-gray-500">{{ 'Your cart is empty.' | arabicTranslate }}</p>
   }
 </p-sidebar>
